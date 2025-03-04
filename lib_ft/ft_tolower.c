@@ -11,16 +11,9 @@
 /* ************************************************************************** */
 
 
-char	*ft_strlowcase(char *str)
+int	ft_tolower(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] <= 'Z' && str[i] >= 'A')
-			str[i] = str[i] + 32;
-		i++;
-	}
-	return (str);
+	if (c <= 'Z' && c >= 'A')
+		return (c + 32);
+	return (c);
 }

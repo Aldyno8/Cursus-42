@@ -24,7 +24,7 @@ char	*ft_strdup(char *src)
 	{
 		i ++;
 	}
-	dest = malloc(sizeof(char) * i);
+	dest = malloc(sizeof(char) * (i + 1));
 	if (dest == NULL)
 		return (NULL);
 	i = 0;
@@ -36,3 +36,4 @@ char	*ft_strdup(char *src)
 	dest[i] = '\0';
 	return (dest);
 }
+

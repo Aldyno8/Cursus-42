@@ -14,19 +14,10 @@
 
 #include <unistd.h>
 
-int	ft_str_is_numeric(char *str)
+int	ft_isdigit(int c)
 {
-	int	i;
-
-	i = 0;
-	if (str[i] != '\0')
-		return (1);
-	while (str[i] != '\0')
-	{
-		if (!(str[i] <= '9' && str[i] >= '1'
-				|| str[i] == ' '))
-			return (0);
-		i++;
-	}
+if (c <= '9' && c >= '0' )
 	return (1);
-}
+return (0);
+};
+
