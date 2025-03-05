@@ -10,22 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <unistd.h>
-
-
-int	ft_isalpha(char *str)
+int	ft_isalpha(int c)
 {
-	int	i;
-
-	i = 0;
-	if (str[i] == '\0')
+	if ((c <= 'Z' && c >= 'A') || (c <= 'z' && c >= 'a'))
 		return (1);
-	while (str[i] != '\0')
-	{
-		if (!((str[i] <= 'z' && str[i] >= 'a') || (str[i] <= 'Z' && str[i] >= 'A')))
-			return (0);
-		i++;
-	}
-	return (1);
+	return (0);
 }
