@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 15:36:21 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/07 09:18:47 by bvelonja         ###   ########.fr       */
+/*   Created: 2025/03/07 09:58:06 by bvelonja          #+#    #+#             */
+/*   Updated: 2025/03/07 11:25:36 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 
-void	*ft_memset( void *pointer, int value, size_t count )
+void	*ft_memmove( void *dest, const void *src, size_t n )
 {
-	unsigned char	*ptr;
+	size_t			i;
+	unsigned char	*destiny;
+	unsigned char	*source;
 
-	ptr = pointer;
-	while (count > 0)
+	i = 0;
+	destiny = (unsigned char *)dest;
+	source = (unsigned char *) src;
+	if (destiny < source)
 	{
-		*ptr ++ = value;
-		count --;
+		while (i < n)
+		{
+			*destiny++ = *source++;
+			i++;
+		}
 	}
-	return (pointer);
+	else
+	{
+		while (n + 1 > 0)
+		{
+			destiny[n] = source[n];
+			n --;
+		}
+	}
+	return (dest);
 }

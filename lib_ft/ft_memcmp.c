@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 15:36:21 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/07 09:18:47 by bvelonja         ###   ########.fr       */
+/*   Created: 2025/03/07 13:30:02 by bvelonja          #+#    #+#             */
+/*   Updated: 2025/03/07 13:42:57 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	*ft_memset( void *pointer, int value, size_t count )
+int	memcmp( const void *ptr1, const void *ptr2, size_t size )
 {
-	unsigned char	*ptr;
+	const unsigned char	*pointer1;
+	const unsigned char	*pointer2;
+	unsigned int		i;
 
-	ptr = pointer;
-	while (count > 0)
+	pointer1 = ptr1;
+	pointer2 = ptr2;
+	i = 0;
+	if (size == 0)
+		return (0);
+	while (i < size && pointer1[i] && pointer2[i])
 	{
-		*ptr ++ = value;
-		count --;
+		if (pointer1[i] != pointer2[i])
+			return (pointer1[i] - pointer2[i]);
+		i++;
 	}
-	return (pointer);
+	if (i < size)
+		return (pointer1[i] - pointer2[i]);
+	return (0);
 }

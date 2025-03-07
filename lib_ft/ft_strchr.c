@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 15:36:21 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/07 09:18:47 by bvelonja         ###   ########.fr       */
+/*   Created: 2025/03/07 11:43:30 by bvelonja          #+#    #+#             */
+/*   Updated: 2025/03/07 13:10:51 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	*ft_memset( void *pointer, int value, size_t count )
+char	*ft_strchr( const char *str, int searchedChar )
 {
-	unsigned char	*ptr;
+	int		i;
+	char	*ptr;
 
-	ptr = pointer;
-	while (count > 0)
+	i = 0;
+	ptr = NULL;
+	while (str[i])
 	{
-		*ptr ++ = value;
-		count --;
+		if (str[i] == searchedChar)
+		{
+			ptr = ((char *) str + i);
+			return (ptr);
+		}
+		i ++;
 	}
-	return (pointer);
+	return (ptr);
 }

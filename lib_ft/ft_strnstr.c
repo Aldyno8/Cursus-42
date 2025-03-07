@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 15:36:21 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/07 09:18:47 by bvelonja         ###   ########.fr       */
+/*   Created: 2025/03/07 13:43:50 by bvelonja          #+#    #+#             */
+/*   Updated: 2025/03/07 13:56:50 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	*ft_memset( void *pointer, int value, size_t count )
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	unsigned char	*ptr;
+	int		i;
+	char	*tmp;
 
-	ptr = pointer;
-	while (count > 0)
+	tmp = str;
+	if (*to_find == '\0')
+		return (str);
+	while (*tmp && len > 0)
 	{
-		*ptr ++ = value;
-		count --;
+		i = 0;
+		if (*tmp == to_find[0])
+		{
+			while (tmp[i] == to_find[i] && to_find[i])
+				i++;
+			if (to_find[i] == '\0')
+				return (tmp);
+		}
+		tmp++;
+		len --;
 	}
-	return (pointer);
+	return (NULL);
 }

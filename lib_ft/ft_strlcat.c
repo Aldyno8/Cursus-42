@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 15:36:21 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/07 09:18:47 by bvelonja         ###   ########.fr       */
+/*   Created: 2025/03/07 11:28:26 by bvelonja          #+#    #+#             */
+/*   Updated: 2025/03/07 11:41:53 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	*ft_memset( void *pointer, int value, size_t count )
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	unsigned char	*ptr;
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	k;
 
-	ptr = pointer;
-	while (count > 0)
+	i = 0;
+	j = 0;
+	k = 0;
+	while (dest[i])
+		i++;
+	while (src[k])
+		k++;
+	if (size <= i)
+		k += size;
+	else
+		k += i;
+	while (src[j] && (i + 1) < size)
 	{
-		*ptr ++ = value;
-		count --;
+		dest[i] = src[j];
+		i++;
+		j++;
 	}
-	return (pointer);
+	dest[i] = '\0';
+	return (k);
 }
