@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "libft.h"
 
 void	*ft_memset( void *pointer, int value, size_t count )
 {
