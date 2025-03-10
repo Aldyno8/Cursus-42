@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 13:58:14 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/07 13:58:53 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/10 12:33:19 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	total_size = (nmemb * size);
 	if (nmemb != 0 && (total_size / nmemb) != size)
-    	return (NULL);
+		return (NULL);
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 	ptr = malloc(total_size);
 	if (!ptr)
-    	return (NULL);
-
+		return (NULL);
 	ft_bzero(ptr, total_size);
 	return (ptr);
 }

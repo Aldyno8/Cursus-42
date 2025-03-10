@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 08:53:59 by marvin            #+#    #+#             */
-/*   Updated: 2025/03/04 08:53:59 by marvin           ###   ########.fr       */
+/*   Created: 2025/03/10 12:37:01 by bvelonja          #+#    #+#             */
+/*   Updated: 2025/03/10 12:37:38 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	size_t 	i;
+	size_t	i;
 
 	i = 0;
 	if (!src)

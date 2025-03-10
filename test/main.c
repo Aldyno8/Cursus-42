@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/10 12:44:48 by bvelonja          #+#    #+#             */
+/*   Updated: 2025/03/10 12:45:24 by bvelonja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include <stdio.h>
 #include "libft.h"
 #include <stdlib.h>
@@ -6,13 +19,10 @@ int main(void)
 {
     printf("----- TEST ft_isalpha -----\n");
     printf("'A' -> %d | 'z' -> %d | '1' -> %d\n", ft_isalpha('A'), ft_isalpha('z'), ft_isalpha('1'));
-
     printf("\n----- TEST ft_isdigit -----\n");
     printf("'5' -> %d | 'A' -> %d\n", ft_isdigit('5'), ft_isdigit('A'));
-
     printf("\n----- TEST ft_isalnum -----\n");
     printf("'A' -> %d | '5' -> %d | '#' -> %d\n", ft_isalnum('A'), ft_isalnum('5'), ft_isalnum('#'));
-
     printf("\n----- TEST ft_isascii -----\n");
     printf("'A' -> %d | 200 -> %d\n", ft_isascii('A'), ft_isascii(200));
 

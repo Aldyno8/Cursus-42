@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/08 07:33:51 by marvin            #+#    #+#             */
-/*   Updated: 2025/03/10 12:36:33 by bvelonja         ###   ########.fr       */
+/*   Created: 2025/03/10 09:17:31 by bvelonja          #+#    #+#             */
+/*   Updated: 2025/03/10 10:03:38 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,53 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char	*ft_strjoin(char const *str1, const char *str2)
+char	**alloc_memory(char **str, int len)
 {
-	char	*str;
+	int	i;
+
+	i = 0;
+	*str = malloc(sizeof(char) * len);
+	if (!*str)
+		return (NULL);
+	while (i <= len)
+	{
+		*str[i] = malloc(sizeof(char) * 42);
+		i ++;
+	}
+	if (!str)
+		return (NULL);
+	return (str);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**str;
 	int		i;
 	int		j;
+	int		count;
+	int		len;
 
 	i = 0;
 	j = 0;
-	if (!str1 || !str2)
+	c = 0;
+	len = ft_strlen(s);
+	if (!s)
 		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlen(str1) + ft_strlen(str2) + 1));
+	str = alloc_memory(str, len);
 	if (!str)
 		return (NULL);
-	while (str1[i])
+	while (s[count])
 	{
-		str[i] = str1[i];
-		printf("str1: %s\n", str);
-		i ++;
+		if (s[count] != c)
+		{
+			str[i][j] = s[count];
+			count ++;
+		}
+		else
+		{
+			j = 0;
+			i ++;
+			count ++;
+		}
 	}
-	while (str2[j])
-	{
-		str[i] = str2[j];
-		i ++;
-		j ++;
-	}
-	str[i] = '\0';
-	return (str);
 }
