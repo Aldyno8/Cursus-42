@@ -14,26 +14,74 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	if (!src)
+		return (0);
+	while (i < (size - 1) && src[i])
+	{
+		dest[i] = src[i];
+		i ++;
+	}
+	dest[i] = '\0';
+	while (src[i] != '\0')
+	{
+		i ++;
+	}
+	return (i);
+}
+
+static int	count_words(char const *s, char c)
+{
+	int		i;
+	int		count;
+
+	i = 0;
+	count = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			count++;
+			while (s[i] != c && s[i])
+				i++;
+		}
+		else
+			i++;
+	}
+	printf("%d\n", count);
+	return (count);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	char	*str;
 	char	**str1;
 	int		i;
 	int		j;
+	int		k;
 
+	k = 0;
 	i = 0;
 	j = 0;
-	str = ft_strtrim(s, c);
-	str1 = malloc(sizeof(char) * (ft_strlen(str) + 1));
-	while (i < ft_strlen(str))
+	str1 = malloc(sizeof(char) * (count_words(s, c) + 1));
+	if (!str1)
+		return (NULL);
+	while (s[i])
 	{
-		if (str[i] == c)
+		while (s[i ++] == c)
+		j = i;
+		while (s[i] != c && s[i])
+			i ++;
+		if (i > j)
 		{
-			*str1 = malloc(sizeof(char) * (i - j + 1));
-			ft_strlcpy(*str1, str + j, i - j + 1);	
-			*str1 ++;
-			j = i;
+			str1[k] = malloc(sizeof(char) * (i - j + 1));
+			ft_strlcpy(str1[k], s + j, i - j + 1);
+			k ++;
 		}
-		i ++;
 	}
+	str1[k] = NULL;
+	return (str1);
 }
