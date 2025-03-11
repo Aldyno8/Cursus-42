@@ -1,17 +1,12 @@
-NAME = libft
-
-FLAGS = -Wall -Wextra -Werror
-
 NAME = libft.a
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 
 AR = ar rcs
-RM = rm -f
 
 all: $(NAME)
 
@@ -22,9 +17,9 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ)
+	rm -rf $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
