@@ -58,6 +58,7 @@
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
     "*.embeddedhtml": "html",
-    "stdio.h": "c"
+    "stdio.h": "c",
+    "libft.h": "c"
   }
 }
