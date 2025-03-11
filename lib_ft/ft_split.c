@@ -14,26 +14,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
-{
-	size_t	i;
-
-	i = 0;
-	if (!src)
-		return (0);
-	while (i < (size - 1) && src[i])
-	{
-		dest[i] = src[i];
-		i ++;
-	}
-	dest[i] = '\0';
-	while (src[i] != '\0')
-	{
-		i ++;
-	}
-	return (i);
-}
-
 static int	count_words(char const *s, char c)
 {
 	int		i;
@@ -52,7 +32,6 @@ static int	count_words(char const *s, char c)
 		else
 			i++;
 	}
-	printf("%d\n", count);
 	return (count);
 }
 
@@ -78,8 +57,7 @@ char	**ft_split(char const *s, char c)
 		if (i > j)
 		{
 			str1[k] = malloc(sizeof(char) * (i - j + 1));
-			ft_strlcpy(str1[k], s + j, i - j + 1);
-			k ++;
+			ft_strlcpy(str1[k ++], s + j, i - j + 1);
 		}
 	}
 	str1[k] = NULL;
