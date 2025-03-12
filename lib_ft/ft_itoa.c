@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/12 08:19:10 by bvelonja          #+#    #+#             */
+/*   Updated: 2025/03/12 08:20:18 by bvelonja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <stdio.h>
 
 static	int	count_digit(int n)
 {
@@ -19,7 +30,7 @@ static	int	count_digit(int n)
 	return (count);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	int		nbr_digit;
@@ -39,7 +50,7 @@ char *ft_itoa(int n)
 	str[nbr_digit] = '\0';
 	while (n > 9)
 	{
-		str[nbr_digit - 1]  = (n % 10) + '0';
+		str[nbr_digit - 1] = (n % 10) + '0';
 		n = n / 10;
 		nbr_digit --;
 	}
