@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 08:20:47 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/12 08:21:33 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/12 08:39:56 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (n > 9)
 	{
-		ft_putnbr(n / 10);
+		ft_putnbr_fd(n / 10, fd);
 	}
 	number_in_string = n % 10 + '0';
 	write(fd, &number_in_string, 1);

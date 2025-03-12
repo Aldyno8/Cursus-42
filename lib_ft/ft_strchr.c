@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 11:43:30 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/07 13:10:51 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/12 14:51:10 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*ft_strchr( const char *str, int searchedChar )
 
 	i = 0;
 	ptr = NULL;
-	while (str[i])
+	while (i <= ft_strlen(str))
 	{
-		if (str[i] == searchedChar)
+		if (str[i] == (char) searchedChar)
 		{
 			ptr = ((char *) str + i);
 			return (ptr);

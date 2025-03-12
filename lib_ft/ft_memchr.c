@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 13:12:08 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/07 13:29:34 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/12 14:35:12 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,16 @@
 void	*ft_memchr( const void *ptr, int searchedChar, size_t size )
 {
 	const unsigned char	*pointer;
+	int					i;
 
+	i = 0;
 	pointer = ptr;
 	while (size > 0)
 	{
-		if (*pointer++ == searchedChar)
-			return (((char *) pointer));
+		if (pointer[i] == (char) searchedChar)
+			return ((char *) (pointer + i));
 		size --;
+		i ++;
 	}
 	return (NULL);
 }

@@ -6,16 +6,15 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:41:37 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/12 08:30:01 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/12 08:36:34 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-
 #ifndef LIBFT_H
-#define LIBFT_H
+# define LIBFT_H
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);

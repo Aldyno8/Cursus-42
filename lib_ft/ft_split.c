@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 09:17:31 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/12 08:24:41 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/12 16:39:59 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (s[i])
 	{
-		while (s[i ++] == c)
+		while (s[i] == c && s[i])
+			i ++;
 		j = i;
 		while (s[i] != c && s[i])
 			i ++;
