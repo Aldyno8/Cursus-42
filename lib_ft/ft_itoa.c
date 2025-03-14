@@ -17,6 +17,11 @@ static	int	count_digit(int n)
 	int		count;
 
 	count = 0;
+	if (n < 0)
+	{
+		n = n * -1;
+		count++;
+	}
 	while (n > 0)
 	{
 		n = n / 10;
@@ -32,13 +37,12 @@ char	*ft_itoa(int n)
 	int		i;
 
 	i = 0;
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
 	nbr_digit = count_digit(n);
 	str = malloc(sizeof(char) * nbr_digit + 1);
-	if (n < 0)
+	if (n == -2147483648)
+		return (ft_strjoin("-", "2147483648")); 
+	else if (n < 0)
 	{
-		nbr_digit++;
 		n = n * -1;
 		i = 1;
 		str[0] = '-';
