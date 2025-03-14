@@ -6,11 +6,11 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:19:18 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/12 16:39:10 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/14 16:08:00 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {

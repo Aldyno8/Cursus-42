@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 13:43:50 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/14 10:42:50 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/14 16:10:29 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 	tmp = str;
 	if (*to_find == '\0')
 		return ((char *)str);
-	while (*tmp && len --> 0)
+	while (*tmp && len -- > 0)
 	{
 		i = 0;
 		if (*tmp == to_find[0])

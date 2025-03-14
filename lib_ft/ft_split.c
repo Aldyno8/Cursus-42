@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 09:17:31 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/14 15:33:56 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/14 16:06:46 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ char	**ft_split(char const *s, char c)
 
 	k = 0;
 	i = 0;
-	j = 0;
-	str1 = (char**)malloc(sizeof(char *) * (count_words(s, c) + 1));
+	str1 = malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!str1)
 		return (NULL);
 	while (s[i])

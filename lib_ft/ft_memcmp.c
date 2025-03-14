@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 13:30:02 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/12 14:44:34 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/14 16:10:08 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_memcmp( const void *ptr1, const void *ptr2, size_t size )
 	i = 0;
 	if (size == 0)
 		return (0);
-	while (i < size )
+	while (i < size)
 	{
 		if (pointer1[i] != pointer2[i])
 			return (pointer1[i] - pointer2[i]);
