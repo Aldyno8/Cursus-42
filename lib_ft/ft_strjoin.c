@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 07:33:51 by marvin            #+#    #+#             */
-/*   Updated: 2025/03/10 12:36:33 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/14 14:48:45 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,12 @@ char	*ft_strjoin(char const *str1, const char *str2)
 	j = 0;
 	if (!str1 || !str2)
 		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlen(str1) + ft_strlen(str2) + 1));
+	str = malloc(sizeof(char) * (ft_strlen(str1) + ft_strlen(str2)) + 1);
 	if (!str)
 		return (NULL);
 	while (str1[i])
 	{
 		str[i] = str1[i];
-		printf("str1: %s\n", str);
 		i ++;
 	}
 	while (str2[j])
