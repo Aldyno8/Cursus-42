@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 08:19:10 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/12 08:20:18 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/14 16:03:48 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@ static	int	count_digit(int n)
 	int		count;
 
 	count = 0;
-	if (n < 0)
-	{
-		n = n * -1;
-		count++;
-	}
 	while (n > 0)
 	{
 		n = n / 10;
@@ -37,16 +32,17 @@ char	*ft_itoa(int n)
 	int		i;
 
 	i = 0;
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	nbr_digit = count_digit(n);
 	str = malloc(sizeof(char) * nbr_digit + 1);
 	if (n < 0)
 	{
+		nbr_digit++;
 		n = n * -1;
 		i = 1;
 		str[0] = '-';
 	}
-	if (n == -2147483648)
-		str = ft_strdup("-2147483648");
 	str[nbr_digit] = '\0';
 	while (n > 9)
 	{
