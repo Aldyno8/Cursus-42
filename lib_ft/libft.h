@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:41:37 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/12 08:36:34 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/18 09:38:18 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 typedef struct s_list
 {
-void *content;
-struct s_list *next;
-} t_list;
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
