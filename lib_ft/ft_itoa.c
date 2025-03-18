@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 08:19:10 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/18 09:21:33 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/18 09:48:10 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static	int	count_digit(int n)
 		n = n * -1;
 		count++;
 	}
+	if (n == 0)
+		return (1);
 	while (n > 0)
 	{
 		n = n / 10;
