@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:20:38 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/18 09:23:30 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/18 11:18:50 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	{
 		temp = (*lst)-> next;
 		del((*lst)-> content);
-		free(temp);
+		free(*lst);
 		*lst = temp;
 	}
 }
