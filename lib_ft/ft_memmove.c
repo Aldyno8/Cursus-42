@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:58:06 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/12 14:11:56 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/26 01:46:05 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove( void *dest, const void *src, size_t n )
 	unsigned char	*source;
 
 	i = 0;
+	if (!dest && !src)
+		return (NULL);
 	destiny = (unsigned char *)dest;
 	source = (unsigned char *) src;
 	if (destiny < source)

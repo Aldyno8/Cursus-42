@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 11:43:30 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/12 14:51:10 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/25 23:47:58 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strchr( const char *str, int searchedChar )
 {
-	int		i;
+	size_t	i;
 	char	*ptr;
 
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 11:28:26 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/07 11:41:53 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/26 01:51:28 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,13 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	unsigned int	j;
 	unsigned int	k;
 
-	i = 0;
+
+	i = ft_strlen(dest);
 	j = 0;
-	k = 0;
-	while (dest[i])
-		i++;
-	while (src[k])
-		k++;
-	if (size <= i)
-		k += size;
+	if (size < i)
+		k = ft_strlen(src) + size;
 	else
-		k += i;
+		k = ft_strlen(src) + i;
 	while (src[j] && (i + 1) < size)
 	{
 		dest[i] = src[j];

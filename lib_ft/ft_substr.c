@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:38:55 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/14 16:11:21 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/25 23:49:22 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	if (!s)
