@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 08:19:10 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/26 03:49:23 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/26 05:10:47 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,8 @@ char	*ft_itoa(int n)
 	str[nbr_digit] = '\0';
 	while (n > 9)
 	{
-		str[nbr_digit - 1] = (n % 10) + '0';
+		str[(nbr_digit --) - 1] = (n % 10) + '0';
 		n = n / 10;
-		nbr_digit --;
 	}
 	str[i] = n + '0';
 	return (str);
