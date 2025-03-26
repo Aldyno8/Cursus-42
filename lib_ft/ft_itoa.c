@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 08:19:10 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/21 15:03:35 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/26 03:04:20 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ char	*ft_itoa(int n)
 
 	i = 0;
 	nbr_digit = count_digit(n);
-	str = malloc(sizeof(char) * (nbr_digit + 1));
+	if (str = malloc(sizeof(char) * (nbr_digit + 1)))
+		return (NULL);
 	if (n == -2147483648)
 		return (ft_strjoin("-", "2147483648"));
 	else if (n < 0)
