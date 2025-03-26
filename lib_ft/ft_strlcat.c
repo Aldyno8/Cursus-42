@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 11:28:26 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/26 01:51:28 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/26 03:42:51 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	unsigned int	i;
 	unsigned int	j;
 	unsigned int	k;
-
 
 	i = ft_strlen(dest);
 	j = 0;

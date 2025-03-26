@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:58:06 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/26 01:46:05 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/03/26 03:49:05 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,9 @@ void	*ft_memmove( void *dest, const void *src, size_t n )
 	}
 	else
 	{
-		while (n > 0)
+		while (n -- > 0)
 		{
-			destiny[n - 1] = source[n - 1];
-			n --;
+			destiny[n] = source[n];
 		}
 	}
 	return (dest);
