@@ -26,10 +26,6 @@ bonus : $(BONUS_OBJ)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-so:
-	$(CC) -nostartfiles -fPIC $(FLAGS) $(MANDATORY_FILE)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
-
 clean:
 	rm -rf $(OBJ)
 	rm -rf $(BONUS_OBJ)
