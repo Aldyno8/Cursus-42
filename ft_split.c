@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 09:17:31 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/03/14 16:06:46 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/04/03 00:44:54 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,30 +33,55 @@ static int	count_words(char const *s, char c)
 	return (count);
 }
 
+static void	free_split(char **str1, int k)
+{
+	while (k > 0)
+	{
+		free(str1[k - 1]);
+		k--;
+	}
+	free(str1);
+}
+
+static char	*get_word(const char *s, int *i, char c)
+{
+	int		j;
+	int		len;
+
+	j = *i;
+	len = 0;
+	while (s[*i] && s[*i] != c)
+	{
+		(*i)++;
+		len++;
+	}
+	return (ft_substr(s, j, len));
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**str1;
 	int		i;
-	int		j;
 	int		k;
 
-	k = 0;
 	i = 0;
+	k = 0;
 	str1 = malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!str1)
 		return (NULL);
 	while (s[i])
 	{
 		while (s[i] == c && s[i])
-			i ++;
-		j = i;
-		while (s[i] != c && s[i])
-			i ++;
-		if (i > j)
+			i++;
+		if (!s[i])
+			break ;
+		str1[k] = get_word(s, &i, c);
+		if (!str1[k])
 		{
-			str1[k] = malloc(sizeof(char) * (i - j + 1));
-			ft_strlcpy(str1[k ++], s + j, i - j + 1);
+			free_split(str1, k);
+			return (NULL);
 		}
+		k++;
 	}
 	str1[k] = NULL;
 	return (str1);
