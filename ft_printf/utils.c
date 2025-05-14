@@ -78,7 +78,7 @@ int	ft_putadr(void *ptr)
 	unsigned long	adresse;
 
 	if (!ptr)
-		return (ft_putstr("(null)"));
+		return (ft_putstr("(nil)"));
 	len = 0;
 	adresse = (unsigned long)ptr;
 	len += ft_putstr("0x");
