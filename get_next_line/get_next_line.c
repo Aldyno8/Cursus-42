@@ -6,76 +6,80 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 00:10:51 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/04/29 00:11:59 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/05/26 18:26:12 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*get_line(char *stash)
+static char	*get_line(char *cache)
 {
 	char	*line;
 	int		i;
 
 	i = 0;
-	if (!stash[i])
+	if (!cache[i])
 		return (NULL);
-	while (stash[i] && stash[i] != '\n')
+	while (cache[i] && cache[i] != '\n')
 		i++;
-	line = (char *)malloc(sizeof(char) * (i + 2));
+	line = malloc(sizeof(char) * (i + 2));
 	if (!line)
 		return (NULL);
 	i = 0;
-	while (stash[i] && stash[i] != '\n')
+	while (cache[i] && cache[i] != '\n')
 	{
-		line[i] = stash[i];
+		line[i] = cache[i];
 		i++;
 	}
-	if (stash[i] == '\n')
+	if (cache[i] == '\n')
 	{
-		line[i] = stash[i];
+		line[i] = cache[i];
 		i++;
 	}
 	line[i] = '\0';
 	return (line);
 }
 
-static char	*clean_stash(char *stash)
+static char	*clean_cache(char *cache)
 {
-	char	*new_stash;
+	char	*new_cache;
 	int		i;
 	int		j;
 
 	i = 0;
-	while (stash[i] && stash[i] != '\n')
+	while (cache[i] && cache[i] != '\n')
 		i++;
-	if (!stash[i])
+	if (!cache[i])
 	{
-		free(stash);
+		free(cache);
 		return (NULL);
 	}
-	new_stash = (char *)malloc(sizeof(char) * (ft_strlen(stash) - i + 1));
-	if (!new_stash)
+	new_cache = malloc(sizeof(char) * (ft_strlen(cache) - i + 1));
+	if (!new_cache)
+	{
+		free(cache);
 		return (NULL);
+	}
 	i++;
 	j = 0;
-	while (stash[i])
-		new_stash[j++] = stash[i++];
-	new_stash[j] = '\0';
-	free(stash);
-	return (new_stash);
+	while (cache[i])
+		new_cache[j++] = cache[i++];
+	new_cache[j] = '\0';
+	free(cache);
+	return (new_cache);
 }
 
-static char	*read_file(int fd, char *stash)
+static char	*read_file(int fd, char *cache)
 {
 	char	*buffer;
 	int		bytes_read;
+	char	*temp;
 
-	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
 	bytes_read = 1;
-	while (!ft_strchr(stash, '\n') && bytes_read != 0)
+	while ((!cache || !ft_strchr(cache, '\n')) && bytes_read != 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
@@ -84,23 +88,25 @@ static char	*read_file(int fd, char *stash)
 			return (NULL);
 		}
 		buffer[bytes_read] = '\0';
-		stash = ft_strjoin(stash, buffer);
+		temp = ft_strjoin(cache, buffer);
+		free(cache);
+		cache = temp;
 	}
 	free(buffer);
-	return (stash);
+	return (cache);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
+	static char	*cache;
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	stash = read_file(fd, stash);
-	if (!stash)
+	cache = read_file(fd, cache);
+	if (!cache)
 		return (NULL);
-	line = get_line(stash);
-	stash = clean_stash(stash);
+	line = get_line(cache);
+	cache = clean_cache(cache);
 	return (line);
 }

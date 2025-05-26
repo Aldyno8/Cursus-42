@@ -6,7 +6,7 @@
 /*   By: bvelonja <bvelonja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 00:11:03 by bvelonja          #+#    #+#             */
-/*   Updated: 2025/04/29 00:17:06 by bvelonja         ###   ########.fr       */
+/*   Updated: 2025/05/26 17:49:16 by bvelonja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
-	while (s[i])
+	while (s && s[i])
 		i++;
 	return (i);
 }
@@ -72,17 +72,17 @@ char	*ft_strjoin(char const *str1, const char *str2)
 
 	i = 0;
 	j = 0;
-	if (!str1 || !str2)
+	if (!str1 && !str2)
 		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlen(str1) + ft_strlen(str2)) + 1);
+	str = malloc(sizeof(char) * (ft_strlen(str1) + ft_strlen(str2) + 1));
 	if (!str)
 		return (NULL);
-	while (str1[i])
+	while (str1 && str1[i])
 	{
 		str[i] = str1[i];
 		i ++;
 	}
-	while (str2[j])
+	while (str2 && str2[j])
 	{
 		str[i] = str2[j];
 		i ++;
